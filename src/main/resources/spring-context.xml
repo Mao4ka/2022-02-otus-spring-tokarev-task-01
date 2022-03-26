@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="questRepo" class="ru.otus.dao.repository.QuestRepository">
+        <constructor-arg value="questionnaire.csv"/>
+    </bean>
+
+    <bean id="questOutput" class="ru.otus.enterprise.OutputQuestionnary">
+    </bean>
+
+    <bean id="application" class="ru.otus.application.Application">
+        <constructor-arg ref="questRepo"/>
+        <constructor-arg ref="questOutput"/>
+    </bean>
+
+</beans>
